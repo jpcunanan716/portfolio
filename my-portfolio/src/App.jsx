@@ -1,159 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Code, Palette, Zap } from 'lucide-react';
-
-// Squares component embedded directly
-const Squares = ({
-  direction = "right",
-  speed = 1,
-  borderColor = "#999",
-  squareSize = 40,
-  hoverFillColor = "#222",
-}) => {
-  const canvasRef = useRef(null);
-  const requestRef = useRef(null);
-  const numSquaresX = useRef(0);
-  const numSquaresY = useRef(0);
-  const gridOffset = useRef({ x: 0, y: 0 });
-  const hoveredSquareRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-
-    const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-      numSquaresX.current = Math.ceil(canvas.width / squareSize) + 1;
-      numSquaresY.current = Math.ceil(canvas.height / squareSize) + 1;
-    };
-
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    const drawGrid = () => {
-      if (!ctx) return;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
-      const startY = Math.floor(gridOffset.current.y / squareSize) * squareSize;
-
-      for (let x = startX; x < canvas.width + squareSize; x += squareSize) {
-        for (let y = startY; y < canvas.height + squareSize; y += squareSize) {
-          const squareX = x - (gridOffset.current.x % squareSize);
-          const squareY = y - (gridOffset.current.y % squareSize);
-
-          if (
-            hoveredSquareRef.current &&
-            Math.floor((x - startX) / squareSize) ===
-            hoveredSquareRef.current.x &&
-            Math.floor((y - startY) / squareSize) === hoveredSquareRef.current.y
-          ) {
-            ctx.fillStyle = hoverFillColor;
-            ctx.fillRect(squareX, squareY, squareSize, squareSize);
-          }
-
-          ctx.strokeStyle = borderColor;
-          ctx.strokeRect(squareX, squareY, squareSize, squareSize);
-        }
-      }
-
-      const gradient = ctx.createRadialGradient(
-        canvas.width / 2,
-        canvas.height / 2,
-        0,
-        canvas.width / 2,
-        canvas.height / 2,
-        Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
-      );
-      gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
-      gradient.addColorStop(1, "#060010");
-
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    };
-
-    const updateAnimation = () => {
-      const effectiveSpeed = Math.max(speed, 0.1);
-      switch (direction) {
-        case "right":
-          gridOffset.current.x =
-            (gridOffset.current.x - effectiveSpeed + squareSize) % squareSize;
-          break;
-        case "left":
-          gridOffset.current.x =
-            (gridOffset.current.x + effectiveSpeed + squareSize) % squareSize;
-          break;
-        case "up":
-          gridOffset.current.y =
-            (gridOffset.current.y + effectiveSpeed + squareSize) % squareSize;
-          break;
-        case "down":
-          gridOffset.current.y =
-            (gridOffset.current.y - effectiveSpeed + squareSize) % squareSize;
-          break;
-        case "diagonal":
-          gridOffset.current.x =
-            (gridOffset.current.x - effectiveSpeed + squareSize) % squareSize;
-          gridOffset.current.y =
-            (gridOffset.current.y - effectiveSpeed + squareSize) % squareSize;
-          break;
-        default:
-          break;
-      }
-
-      drawGrid();
-      requestRef.current = requestAnimationFrame(updateAnimation);
-    };
-
-    const handleMouseMove = (event) => {
-      const rect = canvas.getBoundingClientRect();
-      const mouseX = event.clientX - rect.left;
-      const mouseY = event.clientY - rect.top;
-
-      const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
-      const startY = Math.floor(gridOffset.current.y / squareSize) * squareSize;
-
-      const hoveredSquareX = Math.floor(
-        (mouseX + gridOffset.current.x - startX) / squareSize
-      );
-      const hoveredSquareY = Math.floor(
-        (mouseY + gridOffset.current.y - startY) / squareSize
-      );
-
-      if (
-        !hoveredSquareRef.current ||
-        hoveredSquareRef.current.x !== hoveredSquareX ||
-        hoveredSquareRef.current.y !== hoveredSquareY
-      ) {
-        hoveredSquareRef.current = { x: hoveredSquareX, y: hoveredSquareY };
-      }
-    };
-
-    const handleMouseLeave = () => {
-      hoveredSquareRef.current = null;
-    };
-
-    canvas.addEventListener("mousemove", handleMouseMove);
-    canvas.addEventListener("mouseleave", handleMouseLeave);
-    requestRef.current = requestAnimationFrame(updateAnimation);
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
-      canvas.removeEventListener("mousemove", handleMouseMove);
-      canvas.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [direction, speed, borderColor, hoverFillColor, squareSize]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="w-full h-full border-none block"
-    />
-  );
-};
+import profileImage from './assets/images/1x1_image.jpg';
+import BlurText from './BlurText';
+import Squares from './Squares';
 
 export default function ModernPortfolio() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -202,9 +51,9 @@ export default function ModernPortfolio() {
   ];
 
   const skills = [
-    { category: "Frontend", items: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"] },
-    { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL"] },
-    { category: "Tools", items: ["Git", "Docker", "AWS", "Figma", "Vite"] }
+    { category: "Frontend", items: ["HTML5", "CSS3", "React", "BootStrap", "Javascript", "Tailwind CSS"] },
+    { category: "Backend & Databases", items: ["Node.js", "Python", "PHP", "Laravel", "C++", "Java", "SQL", "MongoDB", "Firebase"] },
+    { category: "Tools", items: ["Git", "Docker", "AWS", "Figma", "Vite", "Postman"] }
   ];
 
   return (
@@ -231,14 +80,13 @@ export default function ModernPortfolio() {
 
       {/* Hero Section */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Squares Background - positioned absolutely with proper z-index */}
         <div className="absolute inset-0 z-0">
           <Squares
             direction="diagonal"
             speed={0.5}
             squareSize={60}
             borderColor="rgba(234, 179, 8, 0.15)"
-            hoverFillColor="rgba(234, 179, 8, 0.05)"
+            hoverFillColor="rgba(196, 154, 26, 1)"
           />
         </div>
 
@@ -246,8 +94,13 @@ export default function ModernPortfolio() {
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <div className="opacity-100 transition-opacity duration-1000">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-white">Hello, I'm </span>
-              <span className="text-yellow-400">JP</span>
+              <BlurText
+                text="Hello, I'm JP Cunanan"
+                delay={150}
+                animateBy="words"
+                direction="top"
+                className="text-7xl mb-8 text-yellow-400"
+              />
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto">
               Full-stack developer crafting digital experiences with modern technologies
@@ -280,14 +133,16 @@ export default function ModernPortfolio() {
           <h2 className="text-4xl font-bold text-center mb-12 text-yellow-400">About Me</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                I'm a passionate full-stack developer with 5+ years of experience creating scalable web applications.
-                I specialize in React, Node.js, and modern JavaScript frameworks, always staying current with the latest technologies.
-              </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                When I'm not coding, you'll find me exploring new design trends, contributing to open-source projects,
-                or sharing knowledge with the developer community.
-              </p>
+              <div style={{ marginTop: '4rem' }}>
+                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                  I'm a passionate full-stack developer with 5+ years of experience creating scalable web applications.
+                  I specialize in React, Node.js, and modern JavaScript frameworks, always staying current with the latest technologies.
+                </p>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  When I'm not coding, you'll find me exploring new design trends, contributing to open-source projects,
+                  or sharing knowledge with the developer community.
+                </p>
+              </div>
               <div className="flex space-x-4 mt-8">
                 <div className="flex items-center space-x-2">
                   <Code className="text-yellow-400" size={20} />
@@ -304,14 +159,20 @@ export default function ModernPortfolio() {
               </div>
             </div>
             <div className="relative">
-              <div className="w-80 h-80 bg-gradient-to-br from-yellow-400/10 to-black rounded-2xl mx-auto transform rotate-3 hover:rotate-0 transition-transform duration-300 border border-zinc-800"></div>
+              <div className="w-80 h-80 bg-gradient-to-br from-yellow-400/10 to-black rounded-2xl mx-auto transform rotate-3 hover:rotate-0 transition-transform duration-300 border border-zinc-800 overflow-hidden">
+                <img
+                  src={profileImage}
+                  alt="JP Cunanan"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6">
+      < section id="projects" className="py-20 px-6" >
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4 text-yellow-400">Featured Projects</h2>
           <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
@@ -354,16 +215,16 @@ export default function ModernPortfolio() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6 bg-black/80">
+      < section id="skills" className="py-20 px-6 bg-black/80" >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-yellow-400">Skills & Technologies</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {skills.map((skillCategory, index) => (
-              <div key={index} className="bg-zinc-800 rounded-2xl p-6 hover:bg-zinc-900 transition-colors group border border-zinc-600">
+              <div key={index} className="bg-zinc-900 rounded-2xl p-6 hover:bg-zinc-800 transition-all duration-300 transform hover:scale-105 border border-zinc-800">
                 <h3 className="text-xl font-bold mb-4 text-yellow-400 group-hover:text-yellow-300 transition-colors">
                   {skillCategory.category}
                 </h3>
@@ -382,10 +243,10 @@ export default function ModernPortfolio() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6">
+      < section id="contact" className="py-20 px-6" >
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6 text-yellow-400">Let's Work Together</h2>
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
@@ -398,15 +259,18 @@ export default function ModernPortfolio() {
               <Mail className="mr-2 transform group-hover:scale-110 transition-transform" size={18} />
               Get In Touch
             </button>
-            <button className="border border-gray-700 text-gray-300 px-8 py-3 rounded-full font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-colors duration-200">
+            <a
+              href="/files/Jhon_Paul_Cunanan_Resume.pdf"
+              download="JP_Cunanan_CV.pdf"
+              className="border border-gray-700 text-gray-300 px-8 py-3 rounded-full font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-colors duration-200">
               Download CV
-            </button>
+            </a>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-zinc-800/80 bg-black">
+      < footer className="py-8 px-6 border-t border-zinc-800/80 bg-black" >
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">© 2025 JP Cunanan. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 sm:mt-0">
@@ -421,7 +285,7 @@ export default function ModernPortfolio() {
             </a>
           </div>
         </div>
-      </footer>
-    </div>
+      </footer >
+    </div >
   );
 }
