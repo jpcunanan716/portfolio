@@ -9,7 +9,7 @@ const Hero = () => (
             <Squares
                 direction="diagonal"
                 speed={0.5}
-                squareSize={60}
+                squareSize={40}
                 borderColor="rgba(234, 179, 8, 0.15)"
                 hoverFillColor="rgba(196, 154, 26, 1)"
             />

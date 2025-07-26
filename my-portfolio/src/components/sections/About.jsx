@@ -1,4 +1,5 @@
 import DecryptedText from "../common/DecryptedText";
+import TiltedCard from "../common/TiltedCard";
 import { Code, Palette, Zap } from 'lucide-react';
 import profileImage from '/src/assets/images/1x1_image.jpg';
 
@@ -40,11 +41,17 @@ When I'm not coding, you'll find me exploring new design trends, contributing to
                     </div>
                 </div>
                 <div className="relative">
-                    <div className="w-80 h-80 bg-gradient-to-br from-yellow-400/10 to-black rounded-2xl mx-auto transform rotate-3 hover:rotate-0 transition-transform duration-300 border border-zinc-800 overflow-hidden">
-                        <img
-                            src={profileImage}
-                            alt="JP Cunanan"
-                            className="w-full h-full object-cover rounded-2xl"
+                    <div className="w-80 h-80 bg-gradient-to-br from-yellow-400/10 to-black rounded-2xl mx-auto">
+                        <TiltedCard
+                            imageSrc={profileImage}
+                            altText="JP Cunanan Profile Image"
+                            containerHeight="300px"
+                            containerWidth="300px"
+                            imageHeight="300px"
+                            imageWidth="300px"
+                            rotateAmplitude={20}
+                            scaleOnHover={1.05}
+                            showMobileWarning={false}
                         />
                     </div>
                 </div>
