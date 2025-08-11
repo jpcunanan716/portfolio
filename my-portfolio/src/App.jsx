@@ -4,7 +4,7 @@ import { Hero, About, Projects, Skills, Contact, Footer, Navbar } from './compon
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-white dark:bg-neutral-950/97 text-white overflow-x-hidden">
       <Navbar />
       <Hero />
       <About />

@@ -2,9 +2,9 @@ import { skills } from "../../constants/skills";
 import SpotlightCard from "../common/SpotlightCard";
 
 const Skills = () => (
-    < section id="skills" className="py-20 px-6 bg-black/80" >
+    < section id="skills" className="py-20 px-6" >
         <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16 text-yellow-400">Skills & Technologies</h2>
+            <h2 className="text-4xl font-bold text-center mb-16 text-neutral-800 dark:text-white">Skills & Technologies</h2>
 
 
             <div className="grid md:grid-cols-3 gap-8">

@@ -5,9 +5,9 @@ import profileImage from '/src/assets/images/1x1_image.jpg';
 
 const About = () => (
 
-    <section id="about" className="py-20 px-6 bg-black/80 backdrop-blur-md">
+    <section id="about" className="py-20 px-6 backdrop-blur-md">
         <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12 text-yellow-400">About Me</h2>
+            <h2 className="text-4xl font-bold text-center mb-12 text-neutral-800 dark:text-white">About Me</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <div style={{ marginTop: '4rem' }}>
@@ -18,7 +18,7 @@ When I'm not coding, you'll find me exploring new design trends, contributing to
                             speed={10}
                             maxIterations={15}
                             animateOn="view"
-                            className="revealed text-gray-300 text-lg leading-relaxed mb-6"
+                            className="revealed text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
                             revealDirection="start"
                             sequential={true}
                             parentClassName="all-letters"
@@ -27,21 +27,21 @@ When I'm not coding, you'll find me exploring new design trends, contributing to
                     </div>
                     <div className="flex space-x-4 mt-8">
                         <div className="flex items-center space-x-2">
-                            <Code className="text-yellow-400" size={20} />
-                            <span className="text-gray-400">Clean Code</span>
+                            <Code className="text-blue-600" size={20} />
+                            <span className="text-gray-500 dark:text-gray-300">Clean Code</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <Palette className="text-yellow-400" size={20} />
-                            <span className="text-gray-400">UI/UX Focus</span>
+                            <Palette className="text-blue-600" size={20} />
+                            <span className="text-gray-500 dark:text-gray-300">UI/UX Focus</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <Zap className="text-yellow-400" size={20} />
-                            <span className="text-gray-400">Performance</span>
+                            <Zap className="text-blue-600" size={20} />
+                            <span className="text-gray-500 dark:text-gray-300   ">Performance</span>
                         </div>
                     </div>
                 </div>
                 <div className="relative">
-                    <div className="w-80 h-80 bg-gradient-to-br from-yellow-400/10 to-black rounded-2xl mx-auto">
+                    <div className="w-80 h-80 from-yellow-400/10 to-black rounded-2xl mx-auto">
                         <TiltedCard
                             imageSrc={profileImage}
                             altText="JP Cunanan Profile Image"

@@ -1,7 +1,7 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => (
-    < footer className="py-8 px-6 border-t border-zinc-800/80 bg-black" >
+    < footer className="py-8 px-6 border-t border-zinc-800/80" >
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm">© 2025 JP Cunanan. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
