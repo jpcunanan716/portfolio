@@ -7,7 +7,7 @@ const About = () => (
 
     <section id="about" className="py-20 px-6 backdrop-blur-md">
         <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12 text-neutral-800 dark:text-white">About Me</h2>
+            <h2 className="text-4xl font-bold text-center mb-12 text-yellow-400">About Me</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <div style={{ marginTop: '4rem' }}>
@@ -27,15 +27,15 @@ When I'm not coding, you'll find me exploring new design trends, contributing to
                     </div>
                     <div className="flex space-x-4 mt-8">
                         <div className="flex items-center space-x-2">
-                            <Code className="text-blue-600" size={20} />
+                            <Code className="text-yellow-400" size={20} />
                             <span className="text-gray-500 dark:text-gray-300">Clean Code</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <Palette className="text-blue-600" size={20} />
+                            <Palette className="text-yellow-400" size={20} />
                             <span className="text-gray-500 dark:text-gray-300">UI/UX Focus</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <Zap className="text-blue-600" size={20} />
+                            <Zap className="text-yellow-400" size={20} />
                             <span className="text-gray-500 dark:text-gray-300   ">Performance</span>
                         </div>
                     </div>

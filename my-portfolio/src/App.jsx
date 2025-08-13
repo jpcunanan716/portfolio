@@ -1,6 +1,6 @@
 import { projects } from './constants/Projects';
 import { skills } from './constants/skills';
-import { Hero, About, Projects, Skills, Contact, Footer, Navbar } from './components/sections';
+import { Hero, About, Projects, Skills, Contact, Footer, Experience, Navbar } from './components/sections';
 
 const App = () => {
   return (
@@ -9,10 +9,11 @@ const App = () => {
       <Hero />
       <About />
       <Projects projects={projects} />
+      <Experience />
       <Skills skills={skills} />
       <Contact />
       <Footer />
-    </div>
+    </div >
   );
 };
 
