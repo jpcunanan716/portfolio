@@ -1,6 +1,7 @@
 import { projects } from './constants/Projects';
 import { skills } from './constants/skills';
 import { Hero, About, Projects, Skills, Contact, Footer, Experience, Navbar } from './components/sections';
+import { experiences } from './constants/experience';
 
 const App = () => {
   return (
@@ -8,9 +9,9 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
-      <Projects projects={projects} />
-      <Experience />
       <Skills skills={skills} />
+      <Experience experiences={experiences} />
+      <Projects projects={projects} />
       <Contact />
       <Footer />
     </div >

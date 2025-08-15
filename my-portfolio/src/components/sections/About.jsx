@@ -18,7 +18,7 @@ When I'm not coding, you'll find me exploring new design trends, contributing to
                             speed={10}
                             maxIterations={15}
                             animateOn="view"
-                            className="revealed text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
+                            className="revealed text-neutral-800 dark:text-gray-300 text-lg leading-relaxed mb-6"
                             revealDirection="start"
                             sequential={true}
                             parentClassName="all-letters"
@@ -28,15 +28,15 @@ When I'm not coding, you'll find me exploring new design trends, contributing to
                     <div className="flex space-x-4 mt-8">
                         <div className="flex items-center space-x-2">
                             <Code className="text-yellow-400" size={20} />
-                            <span className="text-gray-500 dark:text-gray-300">Clean Code</span>
+                            <span className="text-neutral-600 dark:text-gray-300">Clean Code</span>
                         </div>
                         <div className="flex items-center space-x-2">
                             <Palette className="text-yellow-400" size={20} />
-                            <span className="text-gray-500 dark:text-gray-300">UI/UX Focus</span>
+                            <span className="text-neutral-600 dark:text-gray-300">UI/UX Focus</span>
                         </div>
                         <div className="flex items-center space-x-2">
                             <Zap className="text-yellow-400" size={20} />
-                            <span className="text-gray-500 dark:text-gray-300   ">Performance</span>
+                            <span className="text-neutral-600 dark:text-gray-300   ">Performance</span>
                         </div>
                     </div>
                 </div>

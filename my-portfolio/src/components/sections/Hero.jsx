@@ -69,35 +69,34 @@ const Hero = () => {
                 </div>
             ))}
 
-            {/* Main Content */}
-            <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+            {/* Main Content - Adjusted upward with mt-[-10%] */}
+            <div className="max-w-6xl mx-auto px-6 text-center relative z-10 mt-[-5%]">
                 <div className={`transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                     {/* Status Badge */}
-                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm font-medium mb-8 
-                    ...;mm, pulse">
+                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm font-medium mb-8 pulse">
                         <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-ping"></div>
                         Available for new opportunities
                     </div>
 
                     {/* Main Heading */}
-                    <h1 className="text-6xl md:text-4xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white leading-tight">
+                    <h1 className="text-6xl md:text-3xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white leading-tight">
                         Hello, I'm{' '}
                         <span className="block mt-2">
                             <TextType
                                 text={["JP Cunanan", "JP Cunanan", "JP Cunanan"]}
-                                typingSpeed={140}
-                                pauseDuration={2000}
-                                deletingSpeed={60}
+                                typingSpeed={150}
+                                pauseDuration={1800}
+                                deletingSpeed={100}
                                 textColors={["rgba(255, 195, 0, 1)"]}
                                 showCursor={true}
                                 cursorCharacter="|"
-                                className="text-8xl text-yellow-400"
+                                className="text-7xl text-yellow-400"
                             />
                         </span>
                     </h1>
 
                     {/* Subtitle with Blur Effect */}
-                    <div className="mb-24">
+                    <div className="mb-12">
                         <BlurText
                             text="Full-stack developer crafting digital experiences with modern technologies"
                             className="text-2xl md:text-xl text-gray-600 dark:text-gray-300 font-light max-w-4xl mx-auto leading-relaxed"
@@ -108,7 +107,7 @@ const Hero = () => {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <button
                             onClick={() => scrollToSection('projects')}
-                            className="group relative px-10 py-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-black font-bold rounded-2xl hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-yellow-400/25 flex items-center"
+                            className="text-sm group relative px-10 py-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-black font-bold rounded-2xl hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-yellow-400/25 flex items-center"
                         >
                             View My Work
                             <ArrowRight size={20} className="ml-2 group-hover:translate-x-2 transition-transform" />
@@ -130,11 +129,11 @@ const Hero = () => {
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 dark:text-gray-600 animate-bounce">
+            {/* Scroll Indicator - Adjusted to be less prominent */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 dark:text-gray-600 animate-bounce opacity-70">
                 <div className="flex flex-col items-center space-y-2">
-                    <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center">
-                        <div className="w-1 h-3 bg-current rounded-full mt-2 animate-pulse"></div>
+                    <div className="w-5 h-8 border-2 border-current rounded-full flex justify-center">
+                        <div className="w-1 h-2 bg-current rounded-full mt-1 animate-pulse"></div>
                     </div>
                 </div>
             </div>
