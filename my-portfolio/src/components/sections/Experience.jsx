@@ -70,14 +70,6 @@ const ExperienceRoadmap = () => {
                                             </span>
                                         ))}
                                     </div>
-
-                                    {/* Connector arrow for mobile */}
-                                    {index !== experiences.length - 1 && (
-                                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 md:hidden">
-                                            <ChevronRight className="text-yellow-400" size={24} />
-                                        </div>
-                                    )}
-
                                     <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                                 </div>
                             </div>
