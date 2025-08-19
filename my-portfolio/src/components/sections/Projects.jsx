@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { projects, projectImages, githubLinks } from "../../constants/Projects";
+import { projects, projectImages, githubLinks } from "../../constants/projects";
 import { ExternalLink, Github, X } from "lucide-react";
 
 
