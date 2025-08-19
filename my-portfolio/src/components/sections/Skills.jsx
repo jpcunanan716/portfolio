@@ -120,13 +120,18 @@ const Skills = () => {
                                                         {skill.charAt(0)}
                                                     </div>
 
-                                                    {/* Skill name overlay inside the image container */}
-                                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                    {/* Skill name overlay inside the image container (desktop) */}
+                                                    <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                         <span className="text-xs font-semibold text-gray-900 dark:text-white text-center px-1 leading-tight">
                                                             {skill}
                                                         </span>
                                                     </div>
                                                 </div>
+
+                                                {/* Skill name below the icon (mobile) */}
+                                                <span className="md:hidden text-xs font-medium text-gray-700 dark:text-gray-300 text-center mt-1">
+                                                    {skill}
+                                                </span>
                                             </div>
                                         </ScrollFloat>
                                     ))}

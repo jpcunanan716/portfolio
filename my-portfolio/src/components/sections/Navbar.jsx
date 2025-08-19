@@ -125,20 +125,20 @@ const Navbar = () => {
                             className="flex flex-col justify-center items-center w-6 h-6"
                             aria-label="Toggle mobile menu"
                         >
-                            <span className={`block w-5 h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : 'mb-1'}`}></span>
-                            <span className={`block w-5 h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'mb-1'}`}></span>
-                            <span className={`block w-5 h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+                            <span className={`block w-5 h-0.5 bg-gray-600 dark:bg-neutral-300 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : 'mb-1'}`}></span>
+                            <span className={`block w-5 h-0.5 bg-gray-600 dark:bg-neutral-300 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'mb-1'}`}></span>
+                            <span className={`block w-5 h-0.5 bg-gray-600 dark:bg-neutral-300 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
                         </button>
                     </div>
                 </div>
 
                 {/* Mobile Menu */}
                 <div className={`md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-64 opacity-100 mt-6' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                    <div className="py-4 space-y-4 border-t border-gray-200 dark:border-gray-700">
+                    <div className="py-4 space-y-4 border-t border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 rounded-lg shadow-lg">
                         {['About', 'Projects', 'Skills', 'Contact'].map((item) => (
                             <button
                                 key={item}
-                                className="block w-full text-left text-gray-600 dark:text-gray-300 hover:text-yellow-400 transition-colors duration-200 text-base font-medium py-2"
+                                className="block w-full text-left text-gray-600 dark:text-gray-300 hover:text-yellow-400 transition-colors duration-200 text-base font-medium py-2 px-4"
                                 onClick={() => handleNavClick(item)}
                             >
                                 {item}
