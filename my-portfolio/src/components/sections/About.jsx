@@ -1,5 +1,5 @@
 import DecryptedText from "../common/DecryptedText";
-import TiltedCard from "../common/TiltedCard";
+import PixelTransition from "../common/PixelTransition";
 import { Code, Palette, Zap } from 'lucide-react';
 import profileImage from '/src/assets/images/1x1_image.jpg';
 
@@ -42,16 +42,31 @@ When I'm not coding, you'll find me exploring new design trends, contributing to
                 </div>
                 <div className="relative">
                     <div className="w-80 h-80 from-yellow-400/10 to-black rounded-2xl mx-auto">
-                        <TiltedCard
-                            imageSrc={profileImage}
-                            altText="JP Cunanan Profile Image"
-                            containerHeight="300px"
-                            containerWidth="300px"
-                            imageHeight="300px"
-                            imageWidth="300px"
-                            rotateAmplitude={20}
-                            scaleOnHover={1.05}
-                            showMobileWarning={false}
+                        <PixelTransition
+                            firstContent={
+                                <img
+                                    src={profileImage}
+                                    alt="default pixel transition content, a cat!"
+                                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                />
+                            }
+                            secondContent={
+                                <div
+                                    style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        display: "grid",
+                                        placeItems: "center",
+                                        backgroundColor: "#111"
+                                    }}
+                                >
+                                    <p style={{ fontWeight: 900, fontSize: "3rem", color: "#ffffff" }}>Kumusta!👋</p>
+                                </div>
+                            }
+                            gridSize={12}
+                            pixelColor='#ffffff'
+                            animationStepDuration={0.4}
+                            className="custom-pixel-card"
                         />
                     </div>
                 </div>

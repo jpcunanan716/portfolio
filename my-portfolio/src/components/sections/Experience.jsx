@@ -16,13 +16,13 @@ const ExperienceRoadmap = () => {
                 </ScrollFloat>
 
                 <div className="relative">
-                    {/* Timeline line */}
+                    {/* Timeline line - moved slightly left for mobile */}
                     <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-yellow-400/30 transform -translate-x-1/2"></div>
 
                     {experiences.map((exp, index) => (
                         <ScrollFloat key={index} delay={0.1 * (index + 1)}>
                             <div
-                                className={`relative mb-12 ${index % 2 === 0 ? 'md:pr-[52%] pl-16 md:pl-10' : 'md:pl-[52%] pr-16 md:pr-10'} ${index === experiences.length - 1 ? 'mb-0' : ''}`}
+                                className={`relative mb-12 pl-16 md:pl-0 ${index % 2 === 0 ? 'md:pr-[52%] md:pl-10' : 'md:pl-[52%] md:pr-10'} ${index === experiences.length - 1 ? 'mb-0' : ''}`}
                             >
                                 {/* Timeline dot */}
                                 <div className="absolute top-6 left-4 w-4 h-4 rounded-full bg-yellow-400 border-4 border-neutral-300 dark:border-neutral-900 transform -translate-x-1/2 md:left-1/2"></div>
@@ -47,7 +47,7 @@ const ExperienceRoadmap = () => {
                                                         href={exp.link}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-gray-700 dark:text-gray-500 hover:text-blue-600 transition-colors"
+                                                        className="text-gray-700 dark:text-gray-500 hover:text-yellow-600 transition-colors"
                                                     >
                                                         <ExternalLink size={18} />
                                                     </a>
@@ -64,7 +64,7 @@ const ExperienceRoadmap = () => {
                                         {exp.tech.map((tech, techIndex) => (
                                             <span
                                                 key={techIndex}
-                                                className="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-400 hover:text-black transition-colors border border-neutral-500"
+                                                className="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-yellow-400 hover:text-black transition-colors border border-neutral-500"
                                             >
                                                 {tech}
                                             </span>
@@ -78,7 +78,7 @@ const ExperienceRoadmap = () => {
                                         </div>
                                     )}
 
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                                 </div>
                             </div>
                         </ScrollFloat>

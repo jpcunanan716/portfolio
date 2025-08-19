@@ -1,32 +1,18 @@
 export const experiences = [
     {
-        role: "Frontend Developer",
-        company: "Tech Innovations Inc.",
-        period: "2022 - Present",
-        description: "Lead development of responsive web applications using React and TypeScript. Implemented state management solutions and CI/CD pipelines.",
-        link: "https://techinnovations.example.com",
-        tech: ["React", "TypeScript", "Redux", "Tailwind", "Jest"]
+        role: "IT Intern",
+        company: "SM Prime Holdings, Inc.",
+        period: "2023",
+        description: "Developed low-code internal tools using OutSystems to streamline workflows, designed PowerBI dashboards for data-driven decision-making, and collaborated in Agile teams to deliver features. Also supported documentation and reporting tasks using Microsoft Office tools.",
+        link: "https://www.smprime.com/",
+        tech: ["OustSystems", "PowerBI", "Agile", "Microsoft Office"]
     },
     {
-        role: "Web Developer Intern",
-        company: "Digital Solutions LLC",
-        period: "2021 - 2022",
-        description: "Built client websites with accessibility compliance. Optimized Core Web Vitals scores by 40% across projects.",
-        link: "https://digitalsolutions.example.com",
-        tech: ["JavaScript", "HTML/CSS", "WordPress", "SEO"]
-    },
-    {
-        role: "Freelance Developer",
-        company: "Self-Employed",
-        period: "2020 - 2021",
-        description: "Delivered 15+ websites for small businesses focusing on mobile-first responsive designs and CMS integrations.",
-        tech: ["HTML/CSS", "JavaScript", "PHP", "WordPress"]
-    },
-    {
-        role: "Coding Bootcamp",
-        company: "Tech Academy",
-        period: "2019 - 2020",
-        description: "Completed intensive full-stack program with focus on modern JavaScript frameworks and backend development.",
-        tech: ["JavaScript", "Node.js", "Express", "MongoDB"]
+        role: "Searching for opportunities",
+        company: "",
+        period: "2025",
+        description: "Searching for opportunities to apply my skills in software development and contribute to innovative projects. Open to internships, full-time roles, or freelance work that allows me to grow and learn in a dynamic environment.",
+        link: "",
+        tech: []
     }
 ];

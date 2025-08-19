@@ -1,33 +1,7 @@
 import { useState } from "react";
-import { projects } from "../../constants/Projects";
+import { projects, projectImages, githubLinks } from "../../constants/Projects";
 import { ExternalLink, Github, X } from "lucide-react";
 
-// Placeholder images - replace with your actual project images
-const projectImages = {
-    "E-Commerce Dashboard": [
-        "/images/ecommerce-dashboard-1.jpg",
-        "/images/ecommerce-dashboard-2.jpg"
-    ],
-    "AI Chat Interface": [
-        "/images/ai-chat-1.jpg",
-        "/images/ai-chat-2.jpg"
-    ],
-    "Design System Library": [
-        "/images/design-system-1.jpg"
-    ],
-    "Mobile Banking App": [
-        "/images/banking-app-1.jpg",
-        "/images/banking-app-2.jpg"
-    ]
-};
-
-// Placeholder GitHub links - replace with your actual URLs
-const githubLinks = {
-    "E-Commerce Dashboard": "https://github.com/yourusername/ecommerce-dashboard",
-    "AI Chat Interface": "https://github.com/yourusername/ai-chat",
-    "Design System Library": "https://github.com/yourusername/design-system",
-    "Mobile Banking App": "https://github.com/yourusername/banking-app"
-};
 
 const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
@@ -67,9 +41,9 @@ const Projects = () => {
                     <img
                         src={projectImages[project.title][0]}
                         alt={project.title}
-                        className="w-full h-48 md:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-48 md:h-64 object-cover transition-transform duration-300 group-hover:scale-105 group-hover:opacity-50"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                         <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg font-medium">
                             View Project
                         </span>
@@ -87,7 +61,7 @@ const Projects = () => {
                             href={githubLinks[project.title]}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-700 dark:text-gray-500 hover:text-blue-600 transition-colors"
+                            className="text-gray-700 dark:text-gray-500 hover:text-yellow-600 transition-colors"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <Github size={18} />
@@ -98,7 +72,7 @@ const Projects = () => {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-700 dark:text-gray-500 hover:text-blue-600 transition-colors"
+                            className="text-gray-700 dark:text-gray-500 hover:text-yellow-600 transition-colors"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <ExternalLink size={18} />
@@ -115,14 +89,14 @@ const Projects = () => {
                 {project.tech.map((tech, techIndex) => (
                     <span
                         key={techIndex}
-                        className="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-400 hover:text-black transition-colors border border-neutral-500"
+                        className="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-yellow-400 hover:text-black transition-colors border border-neutral-500"
                     >
                         {tech}
                     </span>
                 ))}
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
         </div>
     );
 
