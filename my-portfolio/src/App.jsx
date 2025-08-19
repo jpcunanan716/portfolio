@@ -2,7 +2,7 @@ import { projects } from './constants/projects';
 import { skills } from './constants/skills';
 import { experiences } from './constants/experience';
 import { Hero, About, Projects, Skills, Contact, Footer, Experience, Navbar } from './components/sections';
-import { experiences } from './constants/experience';
+
 
 const App = () => {
   return (
