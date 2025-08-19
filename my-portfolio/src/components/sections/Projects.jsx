@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { projects, projectImages, githubLinks } from "../../constants/projects";
-import { ExternalLink, Github, X } from "lucide-react";
-
+import { ExternalLink, Github, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+    const touchStartX = useRef(0);
+    const touchEndX = useRef(0);
+    const modalRef = useRef(null);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const openModal = (project) => {
         setSelectedProject(project);
@@ -18,6 +30,12 @@ const Projects = () => {
         document.body.style.overflow = 'auto';
     };
 
+    const handleOutsideClick = (e) => {
+        if (modalRef.current && !modalRef.current.contains(e.target)) {
+            closeModal();
+        }
+    };
+
     const nextImage = () => {
         setCurrentImageIndex(prev =>
             (prev + 1) % projectImages[selectedProject.title].length
@@ -28,6 +46,25 @@ const Projects = () => {
         setCurrentImageIndex(prev =>
             (prev - 1 + projectImages[selectedProject.title].length) % projectImages[selectedProject.title].length
         );
+    };
+
+    // Touch handlers for mobile swipe
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+        touchEndX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStartX.current - touchEndX.current > 50) {
+            // Swipe left
+            nextImage();
+        } else if (touchEndX.current - touchStartX.current > 50) {
+            // Swipe right
+            prevImage();
+        }
     };
 
     const ProjectCard = ({ project }) => (
@@ -117,37 +154,63 @@ const Projects = () => {
 
             {/* Project Modal */}
             {selectedProject && projectImages[selectedProject.title] && (
-                <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
-                    <button
-                        onClick={closeModal}
-                        className="absolute top-6 right-6 text-white hover:text-yellow-400 transition-colors"
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+                    onClick={handleOutsideClick}
+                >
+                    <div
+                        className="max-w-4xl w-full bg-neutral-800 rounded-xl overflow-hidden"
+                        ref={modalRef}
                     >
-                        <X size={32} />
-                    </button>
+                        <button
+                            onClick={closeModal}
+                            className="absolute top-6 right-6 text-white hover:text-yellow-400 transition-colors z-50"
+                        >
+                            <X size={32} />
+                        </button>
 
-                    <div className="max-w-4xl w-full bg-neutral-800 rounded-xl overflow-hidden">
                         <div className="relative">
-                            <img
-                                src={projectImages[selectedProject.title][currentImageIndex]}
-                                alt={selectedProject.title}
-                                className="w-full h-auto max-h-[70vh] object-contain"
-                            />
+                            <div
+                                className="w-full h-auto flex items-center justify-center"
+                                onTouchStart={handleTouchStart}
+                                onTouchMove={handleTouchMove}
+                                onTouchEnd={handleTouchEnd}
+                            >
+                                <img
+                                    src={projectImages[selectedProject.title][currentImageIndex]}
+                                    alt={selectedProject.title}
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
 
-                            {projectImages[selectedProject.title].length > 1 && (
+                            {projectImages[selectedProject.title].length > 1 && !isMobile && (
                                 <>
                                     <button
-                                        onClick={prevImage}
-                                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80 transition-all"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            prevImage();
+                                        }}
+                                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white p-3 rounded-full hover:bg-opacity-90 transition-all hover:scale-110 flex items-center justify-center"
                                     >
-                                        &larr;
+                                        <ChevronLeft size={28} />
                                     </button>
                                     <button
-                                        onClick={nextImage}
-                                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80 transition-all"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            nextImage();
+                                        }}
+                                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white p-3 rounded-full hover:bg-opacity-90 transition-all hover:scale-110 flex items-center justify-center"
                                     >
-                                        &rarr;
+                                        <ChevronRight size={28} />
                                     </button>
                                 </>
+                            )}
+
+                            {/* Image counter */}
+                            {projectImages[selectedProject.title].length > 1 && (
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
+                                    {currentImageIndex + 1} / {projectImages[selectedProject.title].length}
+                                </div>
                             )}
                         </div>
 
