@@ -12,9 +12,9 @@ const About = () => (
                 <div>
                     <div style={{ marginTop: '4rem' }}>
                         <DecryptedText
-                            text="I'm a passionate full-stack developer with 5+ years of experience creating scalable web applications. I specialize in React, Node.js, and modern JavaScript frameworks, always staying current with the latest technologies.
+                            text="I'm a passionate full-stack developer with 1+ years of experience creating scalable web applications. I specialize in React, Node.js, PHP, Laravel, and modern JavaScript frameworks, always staying current with the latest technologies.
 
-When I'm not coding, you'll find me exploring new design trends, contributing to open-source projects, or sharing knowledge with the developer community."
+When I'm not coding, you'll find me exploring new design trends, contributing to open-source projects, sharing knowledge with the developer community, or creating content related to fashion, travel, and technology. I believe in the power of clean code and user-centric design to create exceptional digital experiences."
                             speed={10}
                             maxIterations={15}
                             animateOn="view"
