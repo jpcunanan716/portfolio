@@ -68,6 +68,7 @@ const skillLogos = {
     "Figma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
     "Vite": "https://vitejs.dev/logo.svg",
     "Postman": "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+    "WordPress": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg",
     "OutSystems": "https://images.seeklogo.com/logo-png/33/1/outsystems-logo-png_seeklogo-336505.png"
 };
 
