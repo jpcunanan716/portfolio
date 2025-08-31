@@ -138,7 +138,7 @@ export const projectImages = {
         centurycurated16,
         centurycurated17,
         centurycurated18,
-
+        centurycurated19,
     ]
 };
 
