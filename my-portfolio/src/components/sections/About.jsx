@@ -46,7 +46,7 @@ When I'm not coding, you'll find me exploring new design trends, contributing to
                             firstContent={
                                 <img
                                     src={profileImage}
-                                    alt="default pixel transition content, a cat!"
+                                    alt="profile image2"
                                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                 />
                             }

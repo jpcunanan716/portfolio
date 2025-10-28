@@ -48,6 +48,7 @@ import centurycurated16 from "/src/assets/images/centurycuratedimages/centurycur
 import centurycurated17 from "/src/assets/images/centurycuratedimages/centurycurated17.jpg";
 import centurycurated18 from "/src/assets/images/centurycuratedimages/centurycurated18.jpg";
 import centurycurated19 from "/src/assets/images/centurycuratedimages/centurycurated19.jpg";
+import centurycurated20 from "/src/assets/images/centurycuratedimages/centurycurated20.jpg";
 
 export const projects = [
     {
@@ -122,6 +123,7 @@ export const projectImages = {
     "Century Curated: Mid-century Modern Furniture E-commerce Website": [
         centurycurated1,
         centurycurated2,
+        centurycurated20,
         centurycurated3,
         centurycurated4,
         centurycurated5,
@@ -139,6 +141,7 @@ export const projectImages = {
         centurycurated17,
         centurycurated18,
         centurycurated19,
+
     ]
 };
 
